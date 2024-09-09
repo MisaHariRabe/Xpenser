@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Dépenses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">Suivi des Dépenses</h1>
+
+        <!-- Formulaire pour ajouter une nouvelle transaction -->
+        <form id="transaction-form" class="form-inline">
+            <input type="text" id="description" class="form-control mb-2 mr-sm-2" placeholder="Description" required>
+            <input type="number" id="amount" class="form-control mb-2 mr-sm-2" placeholder="Montant" required>
+            <select id="type" class="form-control mb-2 mr-sm-2" required>
+                <option value="expense">Dépense</option>
+                <option value="income">Gain</option>
+            </select>
+            <select id="category" class="form-control mb-2 mr-sm-2"></select>
+            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+        </form>
+
+        <!-- Graphique des dépenses -->
+        <canvas id="expensesChart" width="400" height="200"></canvas>
+
+        <!-- Section pour afficher le budget total et les dépenses -->
+        <div class="budget-summary mt-4">
+            <h2>Budget Total : <span id="total-budget">0</span>MGA</h2>
+            <h2>Solde : <span id="balance">0</span>MGA</h2>
+        </div>
+
+        <!-- Liste des transactions -->
+        <ul id="transaction-list" class="list-group mt-4"></ul>
+
+        <!-- Section d'alerte -->
+        <div id="alert-message" class="alert"></div>
+
+        <!-- Bouton pour basculer entre le thème clair et sombre -->
+        <button id="toggle-theme" class="btn btn-secondary mt-3">Mode Sombre</button>
+    </div>
+
+    <!-- Charger les scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
